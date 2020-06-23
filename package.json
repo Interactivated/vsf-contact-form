@@ -1,6 +1,6 @@
 {
   "name": "@interactivated/vsf-contact-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Contactform module for VSF",
   "main": "index.ts",
   "author": "Interactivated Ecommerce",

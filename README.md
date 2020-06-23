@@ -17,7 +17,7 @@ Open your theme  example `storefront/src/themes/your_theme/pages/Contacts.vue`
 
 <script>
 
-import ContactForm from '@vue-storefront/vsf-contact-form/components/molecules/ContactForm';
+import ContactForm from '@interactivated/vsf-contact-form/components/molecules/ContactForm';
 
 export default {
   name: 'Contacts',
@@ -34,7 +34,7 @@ Add script import to `./src/modules/client.ts`
 ```
 
 ...
-import { ContactForm } from '@vue-storefront/vsf-contact-form'
+import { ContactForm } from '@interactivated/vsf-contact-form'
 
 export function registerClientModules () {
   registerModule(ContactForm)
@@ -48,11 +48,11 @@ yarn install -> yarn dev
 ```
 Install extension to vue-storefront-api:`
 
-$ cp -fr node_modules/@vue-storefront/vsf-contact-form/api/contact-form ../vue-storefront-api/src/api/extensions/
+$ cp -fr node_modules/@interactivated/vsf-contact-form/api/contact-form ../vue-storefront-api/src/api/extensions/
 
 or
 
-$ cp -fr node_modules/@vue-storefront/vsf-contact-form/api/contact-form ../api/src/api/extensions/
+$ cp -fr node_modules/@interactivated/vsf-contact-form/api/contact-form ../api/src/api/extensions/
 
 Go to api config ./vue-storefront-api/config/default.json and register the Feedback Company Api extension:
 
@@ -68,5 +68,3 @@ yarn install -> yarn dev
 
 Install backend module for magento2 from this repository
 Api [https://github.com/Interactivated/magento2-contact-api](https://github.com/Interactivated/magento2-contact-api)
-
-
