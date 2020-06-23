@@ -66,6 +66,26 @@ export default {
       }
     }
   },
+  validations: {
+    messageData: {
+      email: {
+        required,
+        email
+      },
+      name: {
+        minLength: minLength(2),
+        required
+      },
+      telephone: {
+        minLength: minLength(2),
+        required
+      },
+      comment: {
+        minLength: minLength(2),
+        required
+      }
+    }
+  },
   methods: {
     clearContactForm () {
       this.messageData = {
