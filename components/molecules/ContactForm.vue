@@ -129,7 +129,6 @@ export default {
       height: 60px;
     }
     ::v-deep .sf-input__label {
-      font-size: 24px;
       color: var(--aloe-product-title);
       padding-left: 1rem;
       font-weight: 500;
