@@ -1,13 +1,12 @@
 ## Installation in theme
-go to you theme directory and run
+Add to dependencies in your **theme** package.json
+`storefront/src/themes/your_theme/package.json`
 ```
-yarn add https://github.com/Interactivated/vsf-contact-form
+"@interactivated/vsf-contact-form": "https://github.com/Interactivated/vsf-contact-form.git#1.0.4"
 ```
 
 ## Usage in theme
-
-Open your theme  example `storefront/src/themes/your_theme/pages/Contacts.vue`
-
+Add page or component to your theme, for example `storefront/src/themes/your_theme/pages/Contacts.vue`
 ```
 <template>
   <div id="contacts" class="col-main">
@@ -21,28 +20,53 @@ import ContactForm from '@interactivated/vsf-contact-form/components/molecules/C
 
 export default {
   name: 'Contacts',
-  components: {,
+  components: {
     ContactForm
   }
 }
 </script>
 ```
 
-## Registration the ContactForm module
-
-Add script import to `./src/modules/client.ts`
+## Change webpack to allow ts in modules
+In `storefront/core/build/webpack.base.config.ts`
+Remove `exclude: /node_modules/` and add option `allowTsInNodeModules: true`
+```
+{
+    test: /\.ts$/,
+    loader: ‘ts-loader’,
+    options: {
+     allowTsInNodeModules: true,
+     appendTsSuffixTo: [/\.vue$/]
+  }
+}
 ```
 
+## Include in tsconfig
+In `storefront/tsconfig.json`
+Remove `node_modules` from exclude section, add `"node_modules/@interactivated/**/*.ts"` to include section
+```
+"include": [
+  ...
+  "node_modules/@interactivated/**/*.ts"
+ ],
+ "exclude": [
+  "**/*.spec.ts"
+ ]
+```
+
+## Register the ContactForm module in vue storefront
+Add module import to `storefront/src/modules/client.ts`
+```
 ...
 import { ContactForm } from '@interactivated/vsf-contact-form'
 
+
+...
 export function registerClientModules () {
   registerModule(ContactForm)
 }
-
-
-yarn install -> yarn dev
 ```
+Run `yarn install` in theme dir -> `yarn dev`
 
 ## Contact Form  API extension
 ```
