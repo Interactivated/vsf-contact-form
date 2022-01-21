@@ -66,7 +66,17 @@ export function registerClientModules () {
   registerModule(ContactForm)
 }
 ```
+
+Extend the storefront `local.json` with section:
+
+```
+"contact": {
+    "endpoint": "http://localhost:8080/api/ext/contact-form/send"
+},
+```
+
 Run `yarn install` in theme dir -> `yarn dev`
+
 
 ## Contact Form  API extension
 ```
